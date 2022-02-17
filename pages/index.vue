@@ -1,6 +1,6 @@
 <template>
-  <div class="m-8">
-    <TheHeader />
+  <div class="home">
+    <Header />
 
     <h1 class="font-bold text-4xl">Blog Posts</h1>
     <ul class="flex flex-wrap">

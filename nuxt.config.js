@@ -24,12 +24,12 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['element-ui/lib/theme-chalk/index.css'],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [],
+  plugins: ['~/plugins/element-ui/index'],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -69,5 +69,14 @@ export default {
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
    */
-  build: {}
+  build: {
+    vendor: ['element-ui'],
+    babel: {
+      plugins: [
+        [
+          'component', { libraryName: 'element-ui', styleLibraryName: 'theme-chalk' }
+        ]
+      ]
+    }
+  }
 }
