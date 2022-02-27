@@ -1,26 +1,39 @@
 <template>
-  <div>
-    <Nuxt />
+  <div class="base-layout">
+    <div class="sidebar" :span="7">
+      BBFE-XIAN
+    </div>
+    <div class="main" :span="17">
+      <Header />
+      <Nuxt />
+    </div>
   </div>
 </template>
-
-<style>
-html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
+<script>
+export default {
+  
 }
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
+</script>
+<style>
+.base-layout {
+  overflow-x: hidden;
+}
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 30%;
+  height: 100%;
+  border-right: 1px solid #e2e2e2;
+}
+.main {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding-top: 60px;
+  width: 70%;
+}
+.header {
+  z-index: 3;
 }
 </style>

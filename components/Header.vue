@@ -9,11 +9,11 @@
 </template>
 <style lang="postcss">
 .header {
+  position: fixed;
+  top: 0;
   display: flex;
   justify-content: space-between;
-  position: fixed;
   width: 100%;
-  z-index: 3;
   background-color: #fff;
   height: 60px;
   border-bottom: 1px solid #e2e2e2;
