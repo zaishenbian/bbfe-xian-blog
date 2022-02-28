@@ -1,8 +1,6 @@
 <template>
   <div class="base-layout">
-    <div class="sidebar" :span="7">
-      BBFE-XIAN
-    </div>
+    <div class="sidebar" :span="7">BBFE-XIAN</div>
     <div class="main" :span="17">
       <Header />
       <Nuxt />
@@ -10,9 +8,7 @@
   </div>
 </template>
 <script>
-export default {
-  
-}
+export default {}
 </script>
 <style>
 .base-layout {

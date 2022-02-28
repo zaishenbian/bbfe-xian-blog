@@ -21,20 +21,20 @@ export default {
   name: 'Nav',
   data() {
     return {
-      activeName: '',
+      activeName: ''
     }
   },
   watch: {
     $route: {
-      handler: function(to, from) {
-        console.log(to)
+      handler(to, from) {
+        // console.log(to)
       },
-      immediate: true,
+      immediate: true
     }
   },
   methods: {
     handleClick(data) {
-      console.log(data)
+      // console.log(data)
     }
   }
 }

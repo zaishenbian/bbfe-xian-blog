@@ -11,7 +11,7 @@
   </div>
 </template>
 <script>
-const TagTypes = ['', 'success', 'info', 'danger', 'warning'];
+const TagTypes = ['', 'success', 'info', 'danger', 'warning']
 
 export default {
   async asyncData({ $content, params }) {
@@ -25,9 +25,9 @@ export default {
   },
   methods: {
     getRandomTagType() {
-      const index = parseInt(Math.random() * 5);
-      return TagTypes[index];
+      const index = parseInt(Math.random() * 5)
+      return TagTypes[index]
     }
-  },
+  }
 }
 </script>

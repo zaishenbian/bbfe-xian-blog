@@ -46,6 +46,9 @@ export default {
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss'
   ],
+  eslint: {
+    cache: false
+  },
   /*
    ** Nuxt.js modules
    */
@@ -74,7 +77,8 @@ export default {
     babel: {
       plugins: [
         [
-          'component', { libraryName: 'element-ui', styleLibraryName: 'theme-chalk' }
+          'component',
+          { libraryName: 'element-ui', styleLibraryName: 'theme-chalk' }
         ]
       ]
     }
