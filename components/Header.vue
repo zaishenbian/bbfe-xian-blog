@@ -3,7 +3,6 @@
     <!-- https://lhcfl.github.io/archives/ -->
     <!-- <NuxtLink to="/"><Logo class="mb-4" /></NuxtLink> -->
     <Nav />
-    <el-button type="success">成功按钮</el-button>
     <AppSearchInput class="ml-8" />
   </header>
 </template>

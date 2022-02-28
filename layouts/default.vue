@@ -26,8 +26,10 @@ export default {}
   position: fixed;
   top: 0;
   right: 0;
-  padding-top: 60px;
+  margin-top: 60px;
   width: 70%;
+  height: 100%;
+  overflow-y: auto;
 }
 .header {
   z-index: 3;

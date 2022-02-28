@@ -1,27 +1,40 @@
 <template>
   <nav class="nav">
-    <div class="nav-item">
-      <NuxtLink to="/">首页</NuxtLink>
+    <div
+      v-for="item in menus"
+      :key="item.path"
+      :class="{ 'nav-item': true, active: item.path === avtivePath }"
+    >
+      <NuxtLink :to="item.path">{{ item.name }}</NuxtLink>
     </div>
-    <div class="nav-item">
-      <NuxtLink to="/blog/tag">标签</NuxtLink>
-    </div>
-    <div class="nav-item">
-      <NuxtLink to="/blog/about">关于</NuxtLink>
-    </div>
-    <el-tabs v-model="activeName" @tab-click="handleClick">
-      <el-tab-pane label="首页" name="home"></el-tab-pane>
-      <el-tab-pane label="标签" name="tag"></el-tab-pane>
-      <el-tab-pane label="关于" name="about"></el-tab-pane>
-    </el-tabs>
   </nav>
 </template>
 <script>
+const menus = [
+  {
+    path: '/',
+    name: '首页'
+  },
+  {
+    path: '/blog/tag',
+    name: '标签'
+  },
+  {
+    path: '/blog/about',
+    name: '关于'
+  }
+]
 export default {
   name: 'Nav',
   data() {
     return {
-      activeName: ''
+      activeName: '',
+      menus
+    }
+  },
+  computed: {
+    avtivePath() {
+      return this.$route.path
     }
   },
   watch: {
@@ -42,11 +55,15 @@ export default {
 <style lang="postcss">
 .nav {
   display: flex;
-  padding: 18px 30px;
+  padding: 0 20px;
   font-size: 14px;
 }
 .nav-item {
-  padding-right: 20px;
+  margin: 0 20px;
+  padding: 18px 0;
+}
+.nav-item.active {
+  border-bottom: 2px solid #4786d6;
 }
 .nav-item a {
   color: #5a5a5a;
