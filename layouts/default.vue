@@ -1,14 +1,36 @@
 <template>
   <div class="base-layout">
-    <div class="sidebar" :span="7">BBFE-XIAN</div>
-    <div class="main" :span="17">
+    <div class="sidebar">
+      <SideBar />
+    </div>
+    <div class="main">
       <Header />
       <Nuxt />
     </div>
   </div>
 </template>
 <script>
-export default {}
+export default {
+  async asyncData({ $content, params }) {
+    const article = await $content('articles', params.slug).fetch()
+    const tagsList = await $content('tags')
+      .only(['name', 'slug'])
+      .where({ name: { $containsAny: article.tags } })
+      .fetch()
+    const tags = Object.assign({}, ...tagsList.map((s) => ({ [s.name]: s })))
+    const [prev, next] = await $content('articles')
+      .only(['title', 'slug'])
+      .sortBy('createdAt', 'asc')
+      .surround(params.slug)
+      .fetch()
+    return {
+      article,
+      tags,
+      prev,
+      next
+    }
+  }
+}
 </script>
 <style>
 .base-layout {

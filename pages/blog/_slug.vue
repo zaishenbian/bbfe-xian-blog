@@ -1,8 +1,5 @@
 <template>
   <article class="article">
-    <h1 class="font-bold text-4xl">{{ article.title }}</h1>
-    <p>{{ article.description }}</p>
-    <p class="pb-4">Post last updated: {{ formatDate(article.updatedAt) }}</p>
     <!-- table of contents -->
     <nav class="pb-6">
       <ul>
@@ -65,23 +62,24 @@ export default {
 <style>
 .article {
   margin: 30px;
+  line-height: 1.6em;
 }
 .nuxt-content p {
   margin-bottom: 20px;
 }
 .nuxt-content h2 {
   font-weight: bold;
-  font-size: 28px;
+  font-size: 22px;
 }
 .nuxt-content h3 {
   font-weight: bold;
-  font-size: 22px;
+  font-size: 18px;
 }
 .icon.icon-link {
   background-image: url('~assets/svg/icon-hashtag.svg');
   display: inline-block;
   width: 20px;
-  height: 20px;
+  height: 17px;
   background-size: 20px 20px;
 }
 </style>
