@@ -1,77 +1,25 @@
 <template>
-  <div class="home">
-    <Header />
-
-    <h1 class="font-bold text-4xl">Blog Posts</h1>
-    <ul class="flex flex-wrap">
-      <li
-        v-for="article of articles"
-        :key="article.slug"
-        class="xs:w-full md:w-1/2 px-2 xs:mb-6 md:mb-12 article-card"
-      >
-        <NuxtLink
-          :to="{ name: 'blog-slug', params: { slug: article.slug } }"
-          class="flex transition-shadow duration-150 ease-in-out shadow-sm hover:shadow-md xxlmax:flex-col"
-        >
-          <img
-            v-if="article.img"
-            class="h-48 xxlmin:w-1/2 xxlmax:w-full object-cover"
-            :src="article.img"
-          />
-
-          <div
-            class="p-6 flex flex-col justify-between xxlmin:w-1/2 xxlmax:w-full"
-          >
-            <h2 class="font-bold">{{ article.title }}</h2>
-            <p>by {{ article.author.name }}</p>
-            <p class="font-bold text-gray-600 text-sm">
-              {{ article.description }}
-            </p>
-          </div>
+  <ul class="home">
+    <li v-for="article of articles" :key="article.slug" class="article">
+      <div class="article-title">
+        <NuxtLink :to="{ name: 'blog-slug', params: { slug: article.slug } }">
+          {{ article.title }}
         </NuxtLink>
-      </li>
-    </ul>
-    <h3 class="mb-4 font-bold text-2xl uppercase text-center">Topics</h3>
-    <ul class="flex flex-wrap mb-4 text-center">
-      <li
-        v-for="tag of tags"
-        :key="tag.slug"
-        class="xs:w-full md:w-1/3 lg:flex-1 px-2 text-center"
-      >
-        <NuxtLink :to="`/blog/tag/${tag.slug}`" class="">
-          <p
-            class="font-bold text-gray-600 uppercase tracking-wider font-medium text-ss"
-          >
-            {{ tag.name }}
-          </p>
-        </NuxtLink>
-      </li>
-    </ul>
-    <footer class="flex justify-center border-gray-500 border-t-2">
-      <p class="mt-4">
-        Created by
-        <a
-          href="https://twitter.com/debs_obrien"
-          class="font-bold hover:underline"
-          >Debbie O'Brien</a
-        >
-        at NuxtJS. See the
-        <a
-          href="https://nuxtjs.org/blog/creating-blog-with-nuxt-content"
-          class="font-bold hover:underline"
-          >tutorial</a
-        >
-        for how to build it.
-      </p>
-    </footer>
-  </div>
+      </div>
+      <div class="article-content">{{ article.description }}</div>
+      <div class="article-footer">
+        <i class="icon el-icon-date"></i>
+        {{ formatDate(article.createdAt) }}
+      </div>
+    </li>
+  </ul>
 </template>
 
 <script>
 export default {
   async asyncData({ $content, params }) {
     const articles = await $content('articles')
-      .only(['title', 'description', 'img', 'slug', 'author'])
+      .only(['title', 'description', 'img', 'slug', 'author', 'createdAt'])
       .sortBy('createdAt', 'desc')
       .fetch()
     const tags = await $content('tags')
@@ -82,19 +30,43 @@ export default {
       articles,
       tags
     }
+  },
+  methods: {
+    formatDate(date) {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' }
+      return new Date(date).toLocaleDateString('zh', options)
+    }
   }
 }
 </script>
 
 <style class="postcss">
-.article-card {
-  border-radius: 8px;
+.article {
+  margin: 30px;
+  line-height: 1.6em;
+  border-bottom: 1px solid #e2e2e2;
 }
-.article-card a {
-  background-color: #fff;
-  border-radius: 8px;
+.article-title a {
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: #5f5f5f;
+  font-size: 22px;
+  text-decoration: none;
 }
-.article-card img div {
-  border-radius: 8px 0 0 8px;
+.article-title a:hover {
+  text-decoration: underline;
+}
+.article-content {
+  margin-left: 5px;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.9);
+}
+.article-footer {
+  padding-bottom: 30px;
+  font-size: 12px;
+  color: #777;
+}
+.article-footer .icon {
+  margin-right: 6px;
 }
 </style>

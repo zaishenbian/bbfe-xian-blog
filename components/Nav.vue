@@ -36,19 +36,6 @@ export default {
     avtivePath() {
       return this.$route.path
     }
-  },
-  watch: {
-    $route: {
-      handler(to, from) {
-        // console.log(to)
-      },
-      immediate: true
-    }
-  },
-  methods: {
-    handleClick(data) {
-      // console.log(data)
-    }
   }
 }
 </script>
