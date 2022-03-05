@@ -6,8 +6,8 @@
           {{ article.title }}
         </NuxtLink>
       </div>
-      <div class="article-content">{{ article.description }}</div>
-      <div class="article-footer">
+      <div class="article-description">{{ article.description }}</div>
+      <div class="article-date">
         <i class="icon el-icon-date"></i>
         {{ formatDate(article.createdAt) }}
       </div>
@@ -41,6 +41,9 @@ export default {
 </script>
 
 <style class="postcss">
+.home {
+  padding-bottom: 30px;
+}
 .article {
   margin: 30px;
   line-height: 1.6em;
@@ -56,17 +59,18 @@ export default {
 .article-title a:hover {
   text-decoration: underline;
 }
-.article-content {
+.article-description {
+  margin: 1em 0;
   margin-left: 5px;
   font-size: 15px;
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.7);
 }
-.article-footer {
+.article-date {
   padding-bottom: 30px;
   font-size: 12px;
   color: #777;
 }
-.article-footer .icon {
+.article-date .icon {
   margin-right: 6px;
 }
 </style>

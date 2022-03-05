@@ -33,6 +33,11 @@ export default {
 }
 </script>
 <style>
+body {
+  font-family: 'PingHei', 'PingFang SC', Helvetica Neue, 'Work Sans',
+    'Hiragino Sans GB', 'Microsoft YaHei', SimSun, sans-serif;
+  color: #424242;
+}
 .base-layout {
   overflow-x: hidden;
 }
