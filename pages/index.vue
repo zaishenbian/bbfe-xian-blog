@@ -1,6 +1,6 @@
 <template>
   <ul class="home">
-    <li v-for="article of articles" :key="article.slug" class="article">
+    <li v-for="article of articles" :key="article.slug" class="article-item">
       <div class="article-title">
         <NuxtLink :to="{ name: 'blog-slug', params: { slug: article.slug } }">
           {{ article.title }}
@@ -33,8 +33,13 @@ export default {
   },
   methods: {
     formatDate(date) {
-      const options = { year: 'numeric', month: 'long', day: 'numeric' }
-      return new Date(date).toLocaleDateString('zh', options)
+      const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      }
+      return new Date(date).toLocaleTimeString('zh', options)
     }
   }
 }
@@ -44,7 +49,7 @@ export default {
 .home {
   padding-bottom: 30px;
 }
-.article {
+.article-item {
   margin: 30px;
   line-height: 1.6em;
   border-bottom: 1px solid #e2e2e2;
@@ -65,12 +70,12 @@ export default {
   font-size: 15px;
   color: rgba(0, 0, 0, 0.7);
 }
-.article-date {
+.article-item .article-date {
   padding-bottom: 30px;
   font-size: 12px;
   color: #777;
 }
-.article-date .icon {
+.article-item .article-date .icon {
   margin-right: 6px;
 }
 </style>

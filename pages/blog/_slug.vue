@@ -5,7 +5,11 @@
     <!-- content author component -->
     <!-- <author :author="article.author" /> -->
     <!-- prevNext component -->
-    <PrevNext :prev="prev" :next="next" class="mt-8 mb-12" />
+    <div class="article-date">
+      <i class="icon el-icon-date"></i>
+      {{ formatDate(article.createdAt) }}
+    </div>
+    <PrevNext :prev="prev" :next="next" class="mt-4 mb-8" />
   </article>
 </template>
 <script>
@@ -31,8 +35,14 @@ export default {
   },
   methods: {
     formatDate(date) {
-      const options = { year: 'numeric', month: 'long', day: 'numeric' }
-      return new Date(date).toLocaleDateString('en', options)
+      const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour12: true
+      }
+      return new Date(date).toLocaleTimeString('zh-CN', options)
     }
   }
 }
@@ -40,8 +50,10 @@ export default {
 <style>
 .article {
   margin: 30px;
+  margin-bottom: 0;
   line-height: 1.6em;
   letter-spacing: 0.05em;
+  border: none;
 }
 .nuxt-content p {
   margin-bottom: 20px;
@@ -68,5 +80,15 @@ export default {
   height: 17px;
   font-size: 1em;
   background-size: 20px 20px;
+}
+
+.article .article-date {
+  padding: 15px 0;
+  font-size: 12px;
+  color: #777;
+  border-bottom: 1px solid #e2e2e2;
+}
+.article .article-date .icon {
+  margin-right: 6px;
 }
 </style>

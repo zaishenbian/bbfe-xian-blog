@@ -5,7 +5,7 @@
       :to="{ name: 'blog-slug', params: { slug: prev.slug } }"
       class="text-primary font-bold hover:underline"
     >
-      {{ prev.title }}
+      上一篇：{{ prev.title }}
     </NuxtLink>
     <span v-else>&nbsp;</span>
     <NuxtLink
@@ -13,7 +13,7 @@
       :to="{ name: 'blog-slug', params: { slug: next.slug } }"
       class="font-bold hover:underline"
     >
-      {{ next.title }}
+      下一篇：{{ next.title }}
     </NuxtLink>
     <span v-else>&nbsp;</span>
   </div>

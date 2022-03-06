@@ -55,7 +55,7 @@ body {
   right: 0;
   margin-top: 60px;
   width: 70%;
-  height: 100%;
+  height: calc(100% - 60px);
   overflow-y: auto;
 }
 .header {
