@@ -23,6 +23,7 @@
   "dependencies": {
     "@nuxt/content": "^1.11.1",
     "element-ui": "^2.15.6",
+    "github-markdown-css": "^5.1.0",
     "nuxt": "^2.14.12",
     "prism-themes": "1.5.0"
   },

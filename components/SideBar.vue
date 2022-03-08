@@ -82,7 +82,7 @@ export default {
 }
 .side-bar .team-info img {
   margin: 0 auto;
-  width: 200px;
+  width: 160px;
 }
 
 .tocmenu {

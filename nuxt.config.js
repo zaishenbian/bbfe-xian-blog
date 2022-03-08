@@ -24,7 +24,10 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['element-ui/lib/theme-chalk/index.css'],
+  css: [
+    'element-ui/lib/theme-chalk/index.css',
+    'github-markdown-css/github-markdown-light.css'
+  ],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
@@ -61,11 +64,6 @@ export default {
    ** See https://content.nuxtjs.org/configuration
    */
   content: {
-    markdown: {
-      prism: {
-        theme: 'prism-themes/themes/prism-material-oceanic.css'
-      }
-    },
     nestedProperties: ['author.name']
   },
   /*

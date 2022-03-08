@@ -16,10 +16,6 @@ const menus = [
     name: '首页'
   },
   {
-    path: '/blog/tag',
-    name: '标签'
-  },
-  {
     path: '/blog/about',
     name: '关于'
   }

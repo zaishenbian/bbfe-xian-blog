@@ -1,9 +1,7 @@
 <template>
   <article class="article">
     <!-- content from markdown -->
-    <nuxt-content :document="article" />
-    <!-- content author component -->
-    <!-- <author :author="article.author" /> -->
+    <nuxt-content class="markdown-body" :document="article" />
     <!-- prevNext component -->
     <div class="article-date">
       <i class="icon el-icon-date"></i>
@@ -16,11 +14,6 @@
 export default {
   async asyncData({ $content, params }) {
     const article = await $content('articles', params.slug).fetch()
-    const tagsList = await $content('tags')
-      .only(['name', 'slug'])
-      .where({ name: { $containsAny: article.tags } })
-      .fetch()
-    const tags = Object.assign({}, ...tagsList.map((s) => ({ [s.name]: s })))
     const [prev, next] = await $content('articles')
       .only(['title', 'slug'])
       .sortBy('createdAt', 'asc')
@@ -28,7 +21,6 @@ export default {
       .fetch()
     return {
       article,
-      tags,
       prev,
       next
     }
@@ -49,7 +41,7 @@ export default {
 </script>
 <style>
 .article {
-  margin: 30px;
+  margin: 30px 40px;
   margin-bottom: 0;
   line-height: 1.6em;
   letter-spacing: 0.05em;
@@ -72,14 +64,26 @@ export default {
   margin: 0.8em 0;
   font-size: 16px;
 }
+
 .icon.icon-link {
-  background-image: url('~assets/svg/icon-hashtag2.svg');
   display: inline-block;
-  margin-right: 4px;
-  width: 20px;
+  margin-left: -24px;
+  width: 24px;
   height: 17px;
   font-size: 1em;
+  background-image: url('~assets/svg/icon-hashtag.svg');
+  background-repeat: no-repeat;
   background-size: 20px 20px;
+  opacity: 0;
+}
+.nuxt-content h2:hover .icon.icon-link {
+  opacity: 1;
+}
+.nuxt-content h3:hover .icon.icon-link {
+  opacity: 1;
+}
+.nuxt-content h4:hover .icon.icon-link {
+  opacity: 1;
 }
 
 .article .article-date {
