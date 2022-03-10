@@ -5,7 +5,7 @@ export default {
    */
   target: 'static',
   router: {
-    base: '/bbfe-xian-blog/'
+    base: '/'
   },
   /*
    ** Headers of the page
