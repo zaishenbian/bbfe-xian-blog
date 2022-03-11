@@ -5,7 +5,12 @@ export default {
    */
   target: 'static',
   router: {
-    base: '/'
+    base: '/bbfe-xian-blog/'
+  },
+  hooks: {
+    'vue-renderer:ssr:templateParams'(params) {
+      params.HEAD = params.HEAD.replace('<base href="/bbfe-xian-blog/">', '')
+    }
   },
   /*
    ** Headers of the page
