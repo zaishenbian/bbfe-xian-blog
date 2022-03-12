@@ -16,3 +16,5 @@ tags:
 - [ ] 博客发文的 CI/CD 配置
 - [ ] 搜索功能实现
 - [ ] 移动端适配
+
+<nuxt-img src="images/BBFE.png" />
