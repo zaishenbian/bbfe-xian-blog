@@ -65,7 +65,8 @@ export default {
    */
   modules: [
     // Doc: https://github.com/nuxt/content
-    '@nuxt/content'
+    '@nuxt/content',
+    '@nuxt/image'
   ],
   /*
    ** Content module configuration

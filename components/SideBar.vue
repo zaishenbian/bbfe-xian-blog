@@ -2,7 +2,7 @@
   <div class="side-bar">
     <div class="team-info">
       <div class="logo">
-        <img src="images/BBFE.png" alt="logo" />
+        <nuxt-img src="/images/BBFE.png" />
       </div>
       <div class="name">
         <NuxtLink to="/">BBFE-XIAN</NuxtLink>
