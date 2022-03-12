@@ -1,3 +1,4 @@
+const BASE_URL = '/bbfe-xian-blog/'
 export default {
   /*
    ** Nuxt target
@@ -5,7 +6,7 @@ export default {
    */
   target: 'static',
   router: {
-    base: '/bbfe-xian-blog/'
+    base: BASE_URL
   },
   hooks: {
     'vue-renderer:ssr:templateParams'(params) {
@@ -55,8 +56,12 @@ export default {
     // Doc: https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@nuxt/image'
   ],
+  image: {
+    staticFilename: `${BASE_URL}images/[name][ext]`
+  },
   eslint: {
     cache: false
   },

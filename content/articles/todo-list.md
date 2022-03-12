@@ -17,4 +17,4 @@ tags:
 - [ ] 搜索功能实现
 - [ ] 移动端适配
 
-<nuxt-img src="/images/BBFE.png" />
+<nuxt-img width="300" src="/images/logo.png" />
