@@ -10,7 +10,7 @@ export default {
   },
   hooks: {
     'vue-renderer:ssr:templateParams'(params) {
-      params.HEAD = params.HEAD.replace('<base href="/bbfe-xian-blog/">', '')
+      params.HEAD = params.HEAD.replace(`<base href="${BASE_URL}">`, '')
     }
   },
   /*
