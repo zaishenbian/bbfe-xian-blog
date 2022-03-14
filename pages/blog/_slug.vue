@@ -43,7 +43,7 @@ export default {
       const gitalk = new Gitalk({
         clientID: 'd36a4c39d8c88e04e5d1',
         clientSecret: '3054f1c05651876ca8cc4bea2f052b5fb53a19b5',
-        repo: 'https://github.com/zaishenbian/blog-comments.git',
+        repo: 'blog-comments',
         owner: 'zaishenbian',
         admin: ['zaishenbian'],
         id: location.pathname // Ensure uniqueness and length less than 50
