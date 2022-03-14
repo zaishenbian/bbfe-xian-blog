@@ -6,11 +6,21 @@
     <div class="article-date">
       <i class="icon el-icon-date"></i>
       {{ formatDate(article.createdAt) }}
+      <i class="icon-tag el-icon-collection-tag"></i>
+      <span v-for="tag of article.tags" :key="tag" class="tag">
+        <NuxtLink :to="`/blog/tag/${tag}`">
+          {{ tag }}
+        </NuxtLink>
+      </span>
     </div>
-    <PrevNext :prev="prev" :next="next" class="mt-4 mb-8" />
+    <PrevNext :prev="prev" :next="next" class="mt-4 mb-4" />
+    <div id="gitalk-container" class="mb-8"></div>
   </article>
 </template>
 <script>
+import 'gitalk/dist/gitalk.css'
+import Gitalk from 'gitalk'
+
 export default {
   async asyncData({ $content, params }) {
     const article = await $content('articles', params.slug).fetch()
@@ -25,7 +35,22 @@ export default {
       next
     }
   },
+  mounted() {
+    this.initComments()
+  },
   methods: {
+    initComments() {
+      const gitalk = new Gitalk({
+        clientID: 'd36a4c39d8c88e04e5d1',
+        clientSecret: '3054f1c05651876ca8cc4bea2f052b5fb53a19b5',
+        repo: 'https://github.com/zaishenbian/blog-comments.git',
+        owner: 'zaishenbian',
+        admin: ['zaishenbian'],
+        id: location.pathname // Ensure uniqueness and length less than 50
+      })
+
+      gitalk.render('gitalk-container')
+    },
     formatDate(date) {
       const options = {
         weekday: 'long',
@@ -94,5 +119,14 @@ export default {
 }
 .article .article-date .icon {
   margin-right: 6px;
+}
+.article .icon-tag {
+  margin-left: 8px;
+}
+.article .tag {
+  padding-right: 10px;
+}
+.article .tag a:hover {
+  text-decoration: underline;
 }
 </style>

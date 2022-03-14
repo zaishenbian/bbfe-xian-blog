@@ -25,6 +25,7 @@
     "@nuxt/content": "^1.11.1",
     "@nuxt/image": "0.4.17",
     "element-ui": "^2.15.6",
+    "gitalk": "^1.7.2",
     "github-markdown-css": "^5.1.0",
     "nuxt": "^2.14.12",
     "prism-themes": "1.5.0"
