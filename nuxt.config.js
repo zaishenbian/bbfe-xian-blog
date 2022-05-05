@@ -71,7 +71,8 @@ export default {
   modules: [
     // Doc: https://github.com/nuxt/content
     '@nuxt/content',
-    '@nuxt/image'
+    '@nuxt/image',
+    '@nuxtjs/style-resources'
   ],
   /*
    ** Content module configuration

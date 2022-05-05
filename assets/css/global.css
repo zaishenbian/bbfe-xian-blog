@@ -1,5 +1,10 @@
 .markdown-body .anchor {
-  float: none;
-  margin: 0;
-  padding: 0;
+  float: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+::selection {
+  background: #0049b0;
+  color: #fff;
 }

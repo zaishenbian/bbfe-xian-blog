@@ -6,16 +6,21 @@
           {{ article.title }}
         </NuxtLink>
       </div>
-      <div class="article-description">{{ article.description }}</div>
       <div class="article-date">
-        <i class="icon el-icon-date"></i>
         {{ formatDate(article.createdAt) }}
-        <i class="icon-tag el-icon-collection-tag"></i>
+      </div>
+      <div class="article-tags">
         <span v-for="tag of article.tags" :key="tag" class="tag">
           <NuxtLink :to="`/blog/tag/${tag}`">
             {{ tag }}
           </NuxtLink>
         </span>
+      </div>
+      <div class="article-description">{{ article.description }}</div>
+      <div class="read-more">
+        <NuxtLink :to="{ name: 'blog-slug', params: { slug: article.slug } }">
+          Read more
+        </NuxtLink>
       </div>
     </li>
   </ul>
@@ -42,50 +47,67 @@ export default {
 }
 </script>
 
-<style class="postcss">
+<style lang="less">
 .home {
   padding-bottom: 30px;
 }
+
 .article-item {
-  margin: 30px;
+  margin: 40px 0;
   line-height: 1.6em;
-  border-bottom: 1px solid #e2e2e2;
+
+  .article-title {
+    a {
+      letter-spacing: 1px;
+      font-weight: 600;
+      color: #34495e;
+      font-size: 1.6em;
+      text-decoration: none;
+    }
+
+    a:hover {
+      border-bottom: 2px solid #0049b0;
+    }
+  }
+
+  .article-date {
+    margin: 10px 0;
+    line-height: 18px;
+    color: #7f8c8d;
+    font-size: 0.9em;
+  }
+
+  .article-tags {
+    .tag {
+      display: inline-block;
+      margin-right: 4px;
+      padding: 3px 5px;
+      font-family: 'Roboto Mono', Monaco, courier, monospace;
+      font-size: 0.8em;
+      background-color: #f8f8f8;
+      color: #0049b0;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+  }
+
+  .article-description {
+    margin: 10px 0;
+    color: #34495e;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .read-more {
+    text-decoration: none;
+    color: #0049b0;
+    font-weight: bold;
+    cursor: pointer;
+  }
 }
+
 .article-item:last-child {
   margin-bottom: 0;
   border: none;
-}
-.article-title a {
-  letter-spacing: 1px;
-  font-weight: 600;
-  color: #5f5f5f;
-  font-size: 22px;
-  text-decoration: none;
-}
-.article-title a:hover {
-  text-decoration: underline;
-}
-.article-description {
-  margin: 1em 0;
-  margin-left: 5px;
-  font-size: 15px;
-  color: rgba(0, 0, 0, 0.7);
-}
-.article-item .article-date {
-  padding-bottom: 30px;
-  font-size: 12px;
-  color: #777;
-}
-.article-item .article-date .icon {
-  margin-right: 6px;
-}
-.article-item .icon-tag {
-  margin-left: 8px;
-}
-.article-item .tag {
-  padding-right: 10px;
-}
-.article-item .tag a:hover {
-  text-decoration: underline;
 }
 </style>

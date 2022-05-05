@@ -58,7 +58,7 @@ export default {
   }
 }
 </script>
-<style>
+<style lang="less" scoped>
 .side-bar {
   margin: auto 0;
   display: flex;

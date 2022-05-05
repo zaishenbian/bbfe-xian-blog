@@ -16,6 +16,14 @@ const menus = [
     name: '首页'
   },
   {
+    path: '/blog/tag',
+    name: '标签'
+  },
+  {
+    path: '/blog/describe',
+    name: '订阅'
+  },
+  {
     path: '/blog/about',
     name: '关于'
   }
@@ -35,20 +43,25 @@ export default {
   }
 }
 </script>
-<style lang="postcss">
+<style lang="less">
 .nav {
   display: flex;
   padding: 0 20px;
   font-size: 14px;
-}
-.nav-item {
-  margin: 0 20px;
-  padding: 18px 0;
-}
-.nav-item.active {
-  border-bottom: 2px solid #4786d6;
-}
-.nav-item a {
-  color: #5a5a5a;
+
+  .nav-item {
+    margin: 0 12px;
+    line-height: 40px;
+  }
+
+  .nav-item a {
+    padding-bottom: 3px;
+    color: #5a5a5a;
+    font-size: 16px;
+  }
+
+  .nav-item.active a {
+    border-bottom: 3px solid #4786d6;
+  }
 }
 </style>

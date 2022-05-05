@@ -1,10 +1,7 @@
 <template>
   <div class="base-layout">
-    <div class="sidebar">
-      <SideBar />
-    </div>
+    <Header />
     <div class="main">
-      <Header />
       <Nuxt />
     </div>
   </div>
@@ -43,21 +40,12 @@ body {
 .base-layout {
   overflow-x: hidden;
 }
-.sidebar {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 30%;
-  height: 100%;
-  border-right: 1px solid #e2e2e2;
-}
 .main {
-  position: fixed;
-  top: 0;
-  right: 0;
-  margin-top: 60px;
-  width: 70%;
+  max-width: 980px;
   height: calc(100% - 60px);
+  margin: 60px auto 0;
+  padding: 0 1em;
+  overflow-x: hidden;
   overflow-y: auto;
 }
 .header {
