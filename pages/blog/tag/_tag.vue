@@ -56,9 +56,6 @@ export default {
     }
   },
   methods: {
-    jumpToContent(title) {
-      this.$router.push(`/blog/${title}`)
-    },
     jumpToArticle(id) {
       const anchor = document.getElementById(id)
       // chrome
